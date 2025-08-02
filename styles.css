@@ -1,0 +1,4 @@
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.tab-header { cursor: pointer; padding: 10px; background-color: #f1f1f1; border: 1px solid #ccc; }
+.tab-header.active { background-color: #ddd; }

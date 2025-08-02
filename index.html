@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Buddy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <div class="container mx-auto flex-1 flex items-center justify-center">
+        <div id="app" class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+            <div class="tab-headings flex mb-6">
+                <div id="login-tab" class="tab-heading flex-1 text-center py-2 cursor-pointer font-semibold border-b-2 transition-colors border-blue-500 text-blue-700">Login</div>
+                <div id="register-tab" class="tab-heading flex-1 text-center py-2 cursor-pointer font-semibold border-b-2 border-transparent transition-colors">Register</div>
+            </div>
+            <div id="login-section" class="tab-content active">
+                <h2 class="text-2xl font-bold mb-6 text-center">Budget Buddy Login</h2>
+                <form id="login-form" class="space-y-4">
+                    <div class="form-group">
+                        <label for="username" class="block mb-1 font-medium">Username:</label>
+                        <input type="text" id="username" name="username" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="block mb-1 font-medium">Password:</label>
+                        <input type="password" id="password" name="password" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded transition">Login</button>
+                </form>
+            </div>
+            <div id="register-section" class="tab-content">
+                <h2 class="text-2xl font-bold mb-6 text-center">Register for Budget Buddy</h2>
+                <form id="register-form" class="space-y-4">
+                    <div class="form-group">
+                        <label for="reg-username" class="block mb-1 font-medium">Username:</label>
+                        <input type="text" id="reg-username" name="reg-username" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password" class="block mb-1 font-medium">Password:</label>
+                        <input type="password" id="reg-password" name="reg-password" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email" class="block mb-1 font-medium">Email:</label>
+                        <input type="email" id="reg-email" name="reg-email" required class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded transition">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center text-gray-400 py-4">
+        <p>&copy; 2025 Budget Buddy. All rights reserved.</p>
+    </footer>
+    <script>
+        // Tab toggle logic
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const loginSection = document.getElementById('login-section');
+        const registerSection = document.getElementById('register-section');
+
+        loginTab.onclick = function() {
+            loginTab.classList.add('border-blue-500', 'text-blue-700');
+            loginTab.classList.remove('border-transparent');
+            registerTab.classList.remove('border-blue-500', 'text-blue-700');
+            registerTab.classList.add('border-transparent');
+            loginSection.classList.add('active');
+            registerSection.classList.remove('active');
+        };
+        registerTab.onclick = function() {
+            registerTab.classList.add('border-blue-500', 'text-blue-700');
+            registerTab.classList.remove('border-transparent');
+            loginTab.classList.remove('border-blue-500', 'text-blue-700');
+            loginTab.classList.add('border-transparent');
+            registerSection.classList.add('active');
+            loginSection.classList.remove('active');
+        };
+    </script>
+</body>
+</html>
